@@ -1,11 +1,13 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{html,ts}",
   ],
   theme: {
     extend: {
+      screens: {
+        laptop: '1367px',
+      },
       fontFamily: {
         bellefair: ['Bellefair', 'serif'],
         barlow: ['Barlow', 'sans-serif'],
@@ -15,18 +17,18 @@ export default {
         textColor: '#D0D6F9',
       },
       keyframes: {
+        summon: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
         rotation: {
           from: { transform: 'rotate(0)' },
           to: { transform: 'rotate(360deg)' },
         },
-        summon: {
-          from: { opacity: 0 },
-          to: { opacity: 1 },
-        }
       },
       animation: {
-        rotation: 'rotation 60s linear infinite',
-        summon: 'summon 1s ease-in-out forwards',
+        summon: 'summon ease-in-out 1s forwards',
+        rotation: 'rotation linear 60s infinite',
       }
     },
   },

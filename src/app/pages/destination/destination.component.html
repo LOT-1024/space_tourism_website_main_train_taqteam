@@ -1,0 +1,35 @@
+<main class="w-full min-h-screen bg-cover bg-center overflow-hidden" [ngStyle]="{ 'background-image': backgroundImage}">
+  <section class="pt-[212px] pb-[118px] px-[166.5px] flex flex-col animate-summon gap-[64px]">
+    <div class="font-barlowCondensed tracking-[4.725px] flex items-center gap-[28px]">
+      <p class="text-white/[0.25] text-[28px] font-bold">01</p>
+      <p class="text-[28px] text-white">PICK YOUR DESTINATION</p>
+    </div>
+    <section class="flex items-center justify-between">
+      <figure class="flex-1 flex justify-center items-center" [@imageAnimation]="state" (@imageAnimation.done)="animationDone($event)">
+        <img [src]=content?.images?.png alt="Destination Image" class="animate-rotation rounded-full">
+      </figure>
+      <section class="flex-1 pl-[100px]">
+        <nav class="flex gap-[36px]">
+          <button class="text-textColor tracking-[2.7px] font-barlowCondensed pb-[12px] border-b-[3px] border-b-transparent hover:border-b-white/50 transition-all ease-in-out duration-300" [ngClass]="{'border-b-white hover:border-b-white/100 text-white': content?.name === 'Moon'}" (click)="toggle('Moon')">MOON</button>
+          <button class="text-textColor tracking-[2.7px] font-barlowCondensed pb-[12px] border-b-[3px] border-b-transparent hover:border-b-white/50 transition-all ease-in-out duration-300" [ngClass]="{'border-b-white hover:border-b-white/100 text-white': content?.name === 'Mars'}" (click)="toggle('Mars')">MARS</button>
+          <button class="text-textColor tracking-[2.7px] font-barlowCondensed pb-[12px] border-b-[3px] border-b-transparent hover:border-b-white/50 transition-all ease-in-out duration-300" [ngClass]="{'border-b-white hover:border-b-white/100 text-white': content?.name === 'Europa'}" (click)="toggle('Europa')">EUROPA</button>
+          <button class="text-textColor tracking-[2.7px] font-barlowCondensed pb-[12px] border-b-[3px] border-b-transparent hover:border-b-white/50 transition-all ease-in-out duration-300" [ngClass]="{'border-b-white hover:border-b-white/100 text-white': content?.name === 'Titan'}" (click)="toggle('Titan')">TITAN</button>
+        </nav>
+        <article [@myAnimation]="state" (@myAnimation.done)="animationDone($event)">
+          <h1 class="text-white text-[100px] font-bellefair uppercase">{{ content?.name }}</h1>
+          <p class="text-textColor text-[18px] leading-[32px] min-h-[170px]">{{ content?.description }}</p>
+          <div class="flex text-textColor border-t-[1px] border-t-[#383B4B] pt-[28px]">
+            <div class="flex-1">
+              <p class="text-textColor text-[14px] font-barlowCondensed tracking-[2.362px]">AVG. DISTANCE</p>
+              <p class="text-white text-[28px] font-bellefair uppercase">{{ content?.distance }}</p>
+            </div>
+            <div class="flex-1">
+              <p class="text-textColor text-[14px] font-barlowCondensed tracking-[2.362px]">EST. TRAVEL TIME</p>
+              <p class="text-white text-[28px] font-bellefair uppercase">{{ content?.travel }}</p>
+            </div>
+          </div>
+        </article>
+      </section>
+    </section>
+  </section>
+</main>
