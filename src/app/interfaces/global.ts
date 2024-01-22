@@ -15,7 +15,7 @@ interface Images2 {
   landscape: string;
 }
 
-interface Crew {
+export interface Crew {
   name: string;
   images: Images;
   role: string;

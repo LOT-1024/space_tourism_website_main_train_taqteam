@@ -56,7 +56,7 @@ import {
     ]),
   ],
 })
-export class DestinationComponent implements OnInit {
+export class DestinationComponent {
   allData: RootObject = inject(GlobalService).globalData;
   planetData: Destination[];
   backgroundImage: string;
@@ -71,10 +71,6 @@ export class DestinationComponent implements OnInit {
     this.state = 'start';
     this.query = 'Moon';
     this.content = this.planetData.find((planet) => planet.name === this.query);
-  }
-
-  ngOnInit(): void {
-    console.log(this.content)
   }
 
   toggle(value: string): void {
