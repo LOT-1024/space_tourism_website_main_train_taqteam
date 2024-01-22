@@ -1,31 +1,94 @@
-<main class="w-full min-h-screen bg-cover bg-center overflow-hidden" [ngStyle]="{ 'background-image': backgroundImage}">
-  <section class="pt-[212px] pb-[118px] px-[166.5px] flex flex-col animate-summon gap-[64px]">
-    <div class="font-barlowCondensed tracking-[4.725px] flex items-center gap-[28px]">
-      <p class="text-white/[0.25] text-[28px] font-bold">01</p>
-      <p class="text-[28px] text-white">PICK YOUR DESTINATION</p>
+<main
+  class="w-full min-h-screen bg-cover bg-center overflow-hidden flex justify-center bg-[#0B0D19]"
+  [ngStyle]="{ 'background-image': backgroundImage }"
+>
+  <section
+    class="pt-[88px] mobile:pt-[136px] tablet:pt-[212px] pb-[118px] w-full max-w-[1110px] px-[24px] mobile:px-[38.5px] tablet:px-[20px] flex flex-col animate-summon gap-[64px]"
+  >
+    <div
+      class="font-barlowCondensed tracking-[4.725px] flex justify-center mobile:justify-start items-center gap-[28px] select-none"
+    >
+      <p
+        class="text-white/[0.25] text-[16px] mobile:text-[20px] tablet:text-[28px] font-bold"
+      >
+        01
+      </p>
+      <p class="text-[16px] mobile:text-[20px] tablet:text-[28px] text-white">
+        PICK YOUR DESTINATION
+      </p>
     </div>
-    <section class="flex items-center justify-between">
-      <figure class="flex-1 flex justify-center items-center" [@imageAnimation]="state" (@imageAnimation.done)="animationDone($event)">
-        <img [src]=content?.images?.png alt="Destination Image" class="animate-rotation rounded-full">
+    <section
+      class="flex flex-col tablet:flex-row justify-center items-center tablet:justify-between"
+    >
+      <figure
+        class="flex-1 flex justify-center items-center w-full tablet:w-auto"
+        [@imageAnimation]="state"
+        (@imageAnimation.done)="animationDone($event)"
+      >
+        <img
+          [src]="content?.images?.png"
+          alt="Destination Image"
+          class="animate-rotation rounded-full w-[60%] mobile:w-[40%] tablet:w-auto"
+        />
       </figure>
-      <section class="flex-1 pl-[100px]">
-        <nav class="flex gap-[36px]">
-          <button class="text-textColor tracking-[2.7px] font-barlowCondensed pb-[12px] border-b-[3px] border-b-transparent hover:border-b-white/50 transition-all ease-in-out duration-300" [ngClass]="{'border-b-white hover:border-b-white/100 text-white': content?.name === 'Moon'}" (click)="toggle('Moon')">MOON</button>
-          <button class="text-textColor tracking-[2.7px] font-barlowCondensed pb-[12px] border-b-[3px] border-b-transparent hover:border-b-white/50 transition-all ease-in-out duration-300" [ngClass]="{'border-b-white hover:border-b-white/100 text-white': content?.name === 'Mars'}" (click)="toggle('Mars')">MARS</button>
-          <button class="text-textColor tracking-[2.7px] font-barlowCondensed pb-[12px] border-b-[3px] border-b-transparent hover:border-b-white/50 transition-all ease-in-out duration-300" [ngClass]="{'border-b-white hover:border-b-white/100 text-white': content?.name === 'Europa'}" (click)="toggle('Europa')">EUROPA</button>
-          <button class="text-textColor tracking-[2.7px] font-barlowCondensed pb-[12px] border-b-[3px] border-b-transparent hover:border-b-white/50 transition-all ease-in-out duration-300" [ngClass]="{'border-b-white hover:border-b-white/100 text-white': content?.name === 'Titan'}" (click)="toggle('Titan')">TITAN</button>
+      <section
+        class="flex-1 tablet:pl-[100px] flex flex-col justify-center items-center tablet:block mt-[30px] mobile:mt-[60px] tablet:mt-0"
+      >
+        <nav class="flex gap-[26px] mobile:gap-[36px]">
+          @for (name of planetNames; track name) {
+          <button
+            class="text-textColor tracking-[2.362px] mobile:tracking-[2.7px] font-barlowCondensed pb-[8px] mobile:pb-[12px] border-b-[3px] border-b-transparent hover:border-b-white/50 transition-all ease-in-out duration-300 uppercase text-[14px] mobile:text-[16px]"
+            [ngClass]="{
+              'border-b-white hover:border-b-white/100 text-white':
+                content?.name === name
+            }"
+            (click)="toggle(name)"
+          >
+            {{ name }}
+          </button>
+          }
         </nav>
-        <article [@myAnimation]="state" (@myAnimation.done)="animationDone($event)">
-          <h1 class="text-white text-[100px] font-bellefair uppercase">{{ content?.name }}</h1>
-          <p class="text-textColor text-[18px] leading-[32px] min-h-[170px]">{{ content?.description }}</p>
-          <div class="flex text-textColor border-t-[1px] border-t-[#383B4B] pt-[28px]">
-            <div class="flex-1">
-              <p class="text-textColor text-[14px] font-barlowCondensed tracking-[2.362px]">AVG. DISTANCE</p>
-              <p class="text-white text-[28px] font-bellefair uppercase">{{ content?.distance }}</p>
+        <article
+          [@myAnimation]="state"
+          (@myAnimation.done)="animationDone($event)"
+          class="flex flex-col justify-center items-center mt-[20px] mobile:mt-0 tablet:block select-none"
+        >
+          <h1
+            class="text-white text-[56px] mobile:text-[80px] tablet:text-[100px] font-bellefair uppercase"
+          >
+            {{ content?.name }}
+          </h1>
+          <p
+            class="text-textColor text-[15px] mobile:text-[16px] tablet:text-[18px] text-center tablet:text-left leading-[25px] mobile:leading-[28px] tablet:leading-[32px] max-w-[327] mobile:max-w-[573px] tablet:max-w-auto min-h-[125px] mobile:min-h-[100px] tablet:min-h-[170px]"
+          >
+            {{ content?.description }}
+          </p>
+          <div
+            class="flex flex-col mobile:flex-row justify-center items-center mobile:items-start mobile:justify-around tablet:justify-start text-textColor border-t-[1px] border-t-[#383B4B] pt-[28px] w-full mt-[49px] tablet:mt-0 gap-[32px] mobile:gap-0"
+          >
+            <div
+              class="tablet:flex-1 tablet:block flex flex-col justify-center items-center"
+            >
+              <p
+                class="text-textColor text-[14px] font-barlowCondensed tracking-[2.362px]"
+              >
+                AVG. DISTANCE
+              </p>
+              <p class="text-white text-[28px] font-bellefair uppercase">
+                {{ content?.distance }}
+              </p>
             </div>
-            <div class="flex-1">
-              <p class="text-textColor text-[14px] font-barlowCondensed tracking-[2.362px]">EST. TRAVEL TIME</p>
-              <p class="text-white text-[28px] font-bellefair uppercase">{{ content?.travel }}</p>
+            <div
+              class="tablet:flex-1 tablet:block flex flex-col justify-center items-center"
+            >
+              <p
+                class="text-textColor text-[14px] font-barlowCondensed tracking-[2.362px]"
+              >
+                EST. TRAVEL TIME
+              </p>
+              <p class="text-white text-[28px] font-bellefair uppercase">
+                {{ content?.travel }}
+              </p>
             </div>
           </div>
         </article>

@@ -1,0 +1,27 @@
+<header>
+  <section>
+    <div class="flex justify-end">
+      <button (click)="service.toggleNavbar()">
+        <img [src]="exitIcon" alt="Exit Icon" />
+      </button>
+    </div>
+    <nav class="mt-[65px] flex flex-col gap-[32px]">
+      @for (linker of linkers; track linker.name) {
+      <li
+        [routerLink]="linker.path"
+        routerLinkActive="border-b-white hover:border-b-white"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="flex items-center gap-[11px] cursor-pointer border-b-[3px] border-b-transparent hover:border-b-white/[0.5021] transition-all ease-in-out duration-300 select-none w-fit"
+      >
+        <span
+          class="font-bold tracking-[2.7px] font-barlowCondensed text-white block mobile:hidden tablet:block"
+          >0{{ linker.num }}</span
+        ><a
+          class="text-white tracking-[2.7px] font-barlowCondensed tablet:text-[16px] text-[14px]"
+          >{{ linker.name }}</a
+        >
+      </li>
+      }
+    </nav>
+  </section>
+</header>

@@ -1,57 +1,75 @@
 <main
-  class="w-full min-h-screen bg-cover bg-center overflow-hidden"
+  class="w-full min-h-screen bg-cover bg-center overflow-hidden flex justify-center bg-[#0B0D19]"
   [ngStyle]="{ 'background-image': backgroundImage }"
 >
-  <section class="pt-[212px] px-[165px] animate-summon flex flex-col">
+  <section
+    class="pt-[88px] mobile:pt-[136px] tablet:pt-[212px] w-full max-w-[1110px] px-[24px] mobile:px-[38.5px] tablet:px-[20px] animate-summon flex flex-col pb-[54px] mobile:pb-0"
+  >
     <div
-      class="font-barlowCondensed tracking-[4.725px] flex items-center gap-[28px]"
+      class="font-barlowCondensed tracking-[4.725px] flex justify-center mobile:justify-start items-center gap-[28px] select-none"
     >
-      <p class="text-white/[0.25] text-[28px] font-bold">02</p>
-      <p class="text-[28px] text-white">MEET YOUR CREW</p>
+      <p
+        class="text-white/[0.25] text-[16px] mobile:text-[20px] tablet:text-[28px] font-bold"
+      >
+        02
+      </p>
+      <p class="text-[16px] mobile:text-[20px] tablet:text-[28px] text-white">
+        MEET YOUR CREW
+      </p>
     </div>
-    <section class="flex flex-row justify-between">
-      <section class="pt-[154px] flex-1">
+    <section
+      class="flex tablet:flex-row tablet:justify-between tablet:items-end flex-col justify-center items-center w-full tablet:w-auto grow"
+    >
+      <section
+        class="pt-[32px] mobile:pt-[60px] tablet:pt-[154px] grow w-full tablet:w-auto flex flex-col justify-center items-center tablet:block order-2 mobile:order-none"
+      >
         <article
           [@myAnimation]="state"
           (@myAnimation.done)="animationDone($event)"
+          class="select-none order-2 mobile:order-none"
         >
-          <h3 class="uppercase text-white/50 font-bellefair text-[32px]">
+          <h3
+            class="uppercase text-white/50 font-bellefair text-[16px] mobile:text-[24px] text-center tablet:text-left tablet:text-[32px]"
+          >
             {{ content?.role }}
           </h3>
-          <h1 class="uppercase text-white font-bellefair text-[56px]">
+          <h1
+            class="uppercase text-white font-bellefair text-[24px] mobile:text-[40px] tablet:text-[56px] lg:text-nowrap text-wrap text-center tablet:text-left"
+          >
             {{ content?.name }}
           </h1>
           <p
-            class="text-textColor font-barlow text-[18px] leading-[32px] w-[444px] min-h-[160px]"
+            class="text-textColor font-barlow text-[15px] mobile:text-[16px] text-center tablet:text-left tablet:text-[18px] leading-[25px] mobile:leading-[28px] tablet:leading-[32px] max-w-[327px] mobile:max-w-[592px] tablet:max-w-[444px] min-h-[150px] mobile:min-h-[112px] tablet:min-h-[160px]"
           >
             {{ content?.bio }}
           </p>
         </article>
-        <nav class="mt-[88px] gap-[24px] flex mb-[94px]">
+        <nav
+          class="mt-0 mobile:mt-[40px] tablet:mt-[88px] gap-[16px] tablet:gap-[24px] flex mb-[40px] tablet:mb-[94px] mobile:order-none order-1"
+        >
+          @for (crew of crewNames; track crew) {
           <button
-            class="w-[15px] aspect-square rounded-full bg-white/20 hover:bg-white/50 transition-all ease-in-out duration-300"
-            [ngClass]="{'bg-white/100 hover:bg-white/100': content?.name === 'Douglas Hurley'}"
-            (click)="toggle('Douglas Hurley')"
+            class="w-[10px] tablet:w-[15px] aspect-square rounded-full transition-all ease-in-out duration-300"
+            [ngClass]="
+              content?.name === crew
+                ? 'bg-white/100 hover:bg-white/100'
+                : 'bg-white/20 hover:bg-white/50'
+            "
+            (click)="toggle(crew)"
           ></button>
-          <button
-            class="w-[15px] aspect-square rounded-full bg-white/20 hover:bg-white/50 transition-all ease-in-out duration-300"
-            [ngClass]="{'bg-white/100 hover:bg-white/100': content?.name === 'Mark Shuttleworth'}"
-            (click)="toggle('Mark Shuttleworth')"
-          ></button>
-          <button
-            class="w-[15px] aspect-square rounded-full bg-white/20 hover:bg-white/50 transition-all ease-in-out duration-300"
-            [ngClass]="{'bg-white/100 hover:bg-white/100': content?.name === 'Victor Glover'}"
-            (click)="toggle('Victor Glover')"
-          ></button>
-          <button
-            class="w-[15px] aspect-square rounded-full bg-white/20 hover:bg-white/50 transition-all ease-in-out duration-300"
-            [ngClass]="{'bg-white/100 hover:bg-white/100': content?.name === 'Anousheh Ansari'}"
-            (click)="toggle('Anousheh Ansari')"
-          ></button>
+          }
         </nav>
       </section>
-      <figure class="flex justify-center items-center flex-1">
-        <img [src]="content?.images?.png" alt="Crew Image" class="self-end" />
+      <figure
+        class="flex justify-center tablet:justify-end items-center w-[327px] tablet:w-auto mobile:w-[539px] tablet:min-h-0 min-h-[350px] mobile:min-h-[700px] order-1 mobile:order-none border-b-[1px] boder-b-[#383B4B] mobile:border-b-0"
+        [@imageAnimation]="state"
+        (@imageAnimation.done)="animationDone($event)"
+      >
+        <img
+          [src]="content?.images?.png"
+          alt="Crew Image"
+          class="self-end w-[70%] mobile:w-auto tablet:w-[90%]"
+        />
       </figure>
     </section>
   </section>

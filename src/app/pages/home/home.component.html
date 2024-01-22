@@ -1,13 +1,13 @@
-<main class="w-full min-h-screen bg-cover bg-center" [ngStyle]="{ 'background-image': backgroundImage}">
-  <section class="px-[165.5px] pb-[131px] pt-[360px] flex justify-between items-end animate-summon">
-    <article class="flex flex-col w-[445px]">
-      <h3 class="font-barlowCondensed text-textColor text-[28px] tracking-[4.725px]">SO, YOU WANT TO TRAVEL TO</h3>
-      <h1 class="font-bellefair text-white text-[150px]">SPACE</h1>
-      <p class="text-textColor text-[18px] leading-[32px]">Let's face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back,and relax because we'll give you a truly out of this world experience!</p>
+<main class="w-full min-h-screen bg-cover bg-center flex justify-center bg-[#0B0D19]" [ngStyle]="{ 'background-image': backgroundImage}">
+  <section class="w-full max-w-[1110px] px-[20px] pb-[48px] mobile:pb-[90px] tablet:pb-[131px] pt-[112px] mobile:pt-[202px] tablet:pt-[360px] flex flex-col tablet:flex-row tablet:justify-between tablet:items-end animate-summon">
+    <article class="flex flex-col items-center tablet:items-start gap-[16px] mobile:gap-[24px] tablet:gap-0 mobile:max-w-auto select-none">
+      <h3 class="font-barlowCondensed text-textColor text-[16px] mobile:text-[20px] tablet:text-[28px] tracking-[2.7px] mobile:tracking-[3.375px] tablet:tracking-[4.725px]">SO, YOU WANT TO TRAVEL TO</h3>
+      <h1 class="font-bellefair text-white text-[80px] mobile:text-[150px] leading-[100px] mobile:leading-[150px] tablet:leading-normal">SPACE</h1>
+      <p class="text-textColor text-[15px] mobile:text-[18px] leading-[25px] mobile:leading-[32px] w-full mobile:w-[444px] text-center tablet:text-left">Let's face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back,and relax because we'll give you a truly out of this world experience!</p>
     </article>
-    <section class="grow flex justify-end">
-      <div class="w-[274px] aspect-square rounded-full group flex justify-center relative">
-        <button routerLink="/destination" class="w-full aspect-square rounded-full bg-white flex justify-center items-center text-[#0B0D17] font-bellefair text-[32px] tracking-[2px] select-none z-[10]">EXPLORE</button>
+    <section class="tablet:grow flex justify-center tablet:justify-end mt-[81px] mobile:mt-[156px] tablet:mt-0">
+      <div class="w-[150px] mobile:w-[242px] tablet:w-[274px] aspect-square rounded-full group flex justify-center relative">
+        <button routerLink="/destination" class="w-full aspect-square rounded-full bg-white flex justify-center items-center text-[#0B0D17] font-bellefair text-[20px] mobile:text-[32px] tracking-[1.25px] mobile:tracking-[2px] select-none z-[10]">EXPLORE</button>
         <div class="w-full aspect-square rounded-full bg-white/[0.1036] absolute group-hover:scale-[1.64] transition-all ease-in-out duration-300"></div>
       </div>
     </section>

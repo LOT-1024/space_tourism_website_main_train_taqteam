@@ -13,27 +13,27 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-    title: 'Space Tourism | Home',
+    title: 'Frontend Mentor | Space Tourism | Home',
     component: HomeComponent,
   },
   {
     path: 'destination',
-    title: 'Space Tourism | Destination',
+    title: 'Frontend Mentor | Space Tourism | Destination',
     component: DestinationComponent,
   },
   {
     path: 'crew',
-    title: 'Space Tourism | Crew',
+    title: 'Frontend Mentor | Space Tourism | Crew',
     component: CrewComponent,
   },
   {
     path: 'technology',
-    title: 'Space Tourism | Technology',
+    title: 'Frontend Mentor | Space Tourism | Technology',
     component: TechnologyComponent,
   },
   {
     path: '**',
-    title: 'Space Tourism | Lost in Space',
+    title: 'Frontend Mentor | Space Tourism | Lost in Space',
     component: LostComponent,
   }
 ];

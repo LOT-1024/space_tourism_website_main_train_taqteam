@@ -7,6 +7,8 @@ module.exports = {
     extend: {
       screens: {
         laptop: '1367px',
+        tablet: '801px',
+        mobile: '451px',
       },
       fontFamily: {
         bellefair: ['Bellefair', 'serif'],

@@ -1,5 +1,5 @@
 import { NgStyle } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,16 +7,34 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [NgStyle, RouterLink],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
   backgroundImage: string;
+  windowWidth: number;
 
   constructor() {
     this.backgroundImage = '';
+    this.windowWidth = window.innerWidth;
   }
 
   ngOnInit(): void {
-    this.backgroundImage = 'url(\'../../../assets/home/background-home-desktop.jpg\')';
+    this.updateBackgroundImage();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.windowWidth = window.innerWidth;
+    this.updateBackgroundImage();
+  }
+
+  private updateBackgroundImage(): void {
+    if (this.windowWidth < 451) {
+      this.backgroundImage = "url('./assets/home/background-home-mobile.jpg')";
+    } else if (this.windowWidth < 801) {
+      this.backgroundImage = "url('./assets/home/background-home-tablet.jpg')";
+    } else {
+      this.backgroundImage = "url('./assets/home/background-home-desktop.jpg')";
+    }
   }
 }

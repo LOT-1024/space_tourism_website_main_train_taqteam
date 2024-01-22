@@ -1,1 +1,78 @@
-<p>technology works!</p>
+<main
+  class="w-full min-h-screen bg-center bg-cover bg-[#0B0D19] overflow-hidden"
+  [ngStyle]="{ 'background-image': backgroundImage }"
+>
+  <section
+    class="pt-[88px] mobile:pt-[136px] tablet:pt-[212px] w-full animate-summon flex flex-col pb-[56px] mobile:pb-[97px] tablet:pb-[30px]"
+  >
+    <div
+      class="font-barlowCondensed tracking-[4.725px] flex justify-center mobile:justify-start items-center gap-[28px] mobile:ml-[38.5px] tablet:ml-[165px] mb-[40px] mobile:mb-[80px] tablet:mb-0 select-none"
+    >
+      <p
+        class="text-white/[0.25] text-[16px] mobile:text-[20px] tablet:text-[28px] font-bold"
+      >
+        03
+      </p>
+      <p class="text-[16px] mobile:text-[20px] tablet:text-[28px] text-white">
+        SPACE LAUNCH 101
+      </p>
+    </div>
+    <section
+      class="flex flex-col tablet:flex-row justify-between gap-[40px] lg:gap-0 items-center"
+    >
+      <section
+        class="flex flex-col tablet:flex-row justify-center items-center grow gap-[80px] order-2 tablet:order-none"
+      >
+        <nav class="flex flex-row tablet:flex-col gap-[16px] tablet:gap-[32px]">
+          @for (tech of techNames; track tech.name) {
+          <button
+            class="w-[40px] mobile:w-[60px] tablet:w-[80px] aspect-square rounded-full border-[1px] border-white/[0.25] text-[16px] mobile:text-[24px] tablet:text-[32px] font-bellefair uppercase tracking-[2px] hover:border-white/100 transition-all ease-in-out duration-300"
+            (click)="toggle(tech.name)"
+            [ngClass]="
+              content?.name === tech.name
+                ? 'text-[#0B0D17] bg-white'
+                : 'text-white '
+            "
+          >
+            {{ tech.num }}
+          </button>
+          }
+        </nav>
+        <article
+          [@myAnimation]="state"
+          (@myAnimation.done)="animationDone($event)"
+          class="min-w-[470px] flex flex-col justify-center items-center tablet:block select-none"
+        >
+          <p class="text-textColor font-barlowCondensed tracking-[2.7px] text-[14px] mobile:text-[16px]">
+            THE TERMINOLOGY...
+          </p>
+          <h1
+            class="uppercase text-white font-bellefair text-[24px] mobile:text-[40px] tablet:text-[56px]"
+          >
+            {{ content?.name }}
+          </h1>
+          <p
+            class="text-textColor font-barlow text-[15px] mobile:text-[16px] tablet:text-[18px] leading-[25px] mobile:leading-[28px] tablet:leading-[32px] max-w-[327px] mobile:max-w-[444px] text-center tablet:text-left"
+          >
+            {{ content?.description }}
+          </p>
+        </article>
+      </section>
+      <figure
+        class="w-full tablet:w-[515px] order-1 tablet:order-none"
+        [@imageAnimation]="state"
+        (@imageAnimation.done)="animationDone($event)"
+      >
+        <img
+          [src]="
+            windowWidth > 801
+              ? content?.images?.portrait
+              : content?.images?.landscape
+          "
+          alt="Technology and Equipment image"
+          class="w-full"
+        />
+      </figure>
+    </section>
+  </section>
+</main>

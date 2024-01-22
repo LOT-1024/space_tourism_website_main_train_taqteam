@@ -1,23 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { GlobalService } from '../../services/global.service';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-navbar-mobile',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
+  imports: [CommonModule, RouterLink, RouterLinkActive],
+  templateUrl: './navbar-mobile.component.html',
+  styleUrl: './navbar-mobile.component.css',
 })
-export class NavbarComponent {
+export class NavbarMobileComponent {
   service = inject(GlobalService);
-  logo: string;
+  exitIcon: string;
   linkers: linkerList[];
-  hamburgerIcon: string;
 
   constructor() {
-    this.logo = './assets/shared/logo.svg';
-    this.hamburgerIcon = './assets/shared/icon-hamburger.svg';
+    this.exitIcon = './assets/shared/icon-close.svg';
     this.linkers = [
       {
         name: 'HOME',

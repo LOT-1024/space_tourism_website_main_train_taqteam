@@ -1,2 +1,10 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<ng-container class="w-full min-h-screen overflow-hidden">
+  <app-navbar></app-navbar>
+  @if (service.openNavbar) {
+  <app-navbar-mobile
+    @myInsertRemoveTrigger
+    class="bg-white/[0.04] backdrop-blur-[41px] w-[254px] top-0 bottom-0 right-0 fixed z-[90] p-[32px]"
+  ></app-navbar-mobile>
+  }
+  <router-outlet></router-outlet>
+</ng-container>

@@ -1,14 +1,14 @@
 <header
-  class="fixed left-0 top-[40px] right-0 flex justify-between items-center z-[20]"
+  class="fixed left-0 top-0 tablet:top-[40px] right-0 flex justify-between items-center z-[20] p-[24px] mobile:p-0"
 >
-  <figure class="ml-[55px]">
-    <img [src]="logo" alt="Space Tourism Logo" class="w-[48px]" />
+  <figure class="mobile:ml-[55px]">
+    <img [src]="logo" alt="Space Tourism Logo" class="w-[40px] mobile:w-[48px]" />
   </figure>
   <div
-    class="bg-white/[0.2515] w-[300px] laptop:w-[473px] h-[1px] absolute left-[167px] z-[10]"
+    class="bg-white/[0.2515] w-[300px] laptop:w-[473px] hidden xl:block h-[1px] absolute left-[167px] z-[10]"
   ></div>
   <nav
-    class="w-[830px] h-[96px] bg-white/[0.04] backdrop-blur-[40.77px] flex pl-[123px] gap-[50px]"
+    class="w-[450px] tablet:w-[830px] h-[96px] bg-white/[0.04] backdrop-blur-[40.77px] mobile:flex justify-center tablet:justify-start tablet:pl-[123px] gap-[37px] tablet:gap-[50px] hidden"
   >
     @for (linker of linkers; track linker.name) {
     <li
@@ -17,12 +17,15 @@
       [routerLinkActiveOptions]="{ exact: true }"
       class="flex items-center gap-[11px] cursor-pointer border-b-[3px] border-b-transparent hover:border-b-white/[0.5021] transition-all ease-in-out duration-300 select-none"
     >
-      <span class="font-bold tracking-[2.7px] font-barlowCondensed text-white"
+      <span class="font-bold tracking-[2.7px] font-barlowCondensed text-white hidden tablet:block"
         >0{{ linker.num }}</span
-      ><a class="text-white tracking-[2.7px] font-barlowCondensed">{{
+      ><a class="text-white tracking-[2.7px] font-barlowCondensed tablet:text-[16px] text-[14px]">{{
         linker.name
       }}</a>
     </li>
     }
   </nav>
+  <button class="mobile:hidden" (click)="service.toggleNavbar()">
+    <img [src]="hamburgerIcon" alt="Hamburger Menu Icon">
+  </button>
 </header>

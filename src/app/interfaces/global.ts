@@ -4,7 +4,7 @@ export interface RootObject {
   technology: Technology[];
 }
 
-interface Technology {
+export interface Technology {
   name: string;
   images: Images2;
   description: string;
