@@ -1,14 +1,9 @@
-import React from 'react';
-import AllRoutes from './routes/AllRoutes';
-import Navbar from './components/Navbar';
+import React from 'react'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './controller'
 
 const App: React.FC = () => {
-  return (
-    <div className='w-full min-h-screen'>
-      <Navbar />
-      <AllRoutes />
-    </div>
-  )
+    return <RouterProvider router={router} />
 }
 
 export default App

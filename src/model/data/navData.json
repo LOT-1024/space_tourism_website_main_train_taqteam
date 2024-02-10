@@ -1,0 +1,24 @@
+{
+    "navbar": [
+        {
+            "numlist": "00",
+            "link": "/",
+            "title": "HOME"
+        },
+        {
+            "numlist": "01",
+            "link": "/destination",
+            "title": "DESTINATION"
+        },
+        {
+            "numlist": "02",
+            "link": "/crew",
+            "title": "CREW"
+        },
+        {
+            "numlist": "03",
+            "link": "/technology",
+            "title": "TECHNOLOGY"
+        }
+    ]
+}

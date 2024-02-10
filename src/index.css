@@ -2,6 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-size: 16px;
+@layer base {
+    body {
+        font-family: 'Barlow', sans-serif;
+    }
+    h1 {
+        font-family: 'Bellefair', serif;
+    }
+    h2 {
+        font-family: 'Barlow Condensed', sans-serif;
+    }
+}
+
+@layer components {
+    .bgHomeDesktop {
+        @apply bg-[url('/assets/home/background-home-desktop.jpg')];
+    }
+    .bgHomeTablet {
+        @apply bg-[url('/assets/home/background-home-tablet.jpg')];
+    }
+    .bgHomeMobile {
+        @apply bg-[url('/assets/home/background-home-mobile.jpg')];
+    }
+    .bgDestinationDesktop {
+        @apply bg-[url('/assets/destination/background-destination-desktop.jpg')];
+    }
+    .bgDestinationTablet {
+        @apply bg-[url('/assets/destination/background-destination-tablet.jpg')];
+    }
+    .bgDestinationMobile {
+        @apply bg-[url('/assets/destination/background-destination-mobile.jpg')];
+    }
+    .bgCrewDesktop {
+        @apply bg-[url('/assets/crew/background-crew-desktop.jpg')];
+    }
+    .bgCrewTablet {
+        @apply bg-[url('/assets/crew/background-crew-tablet.jpg')];
+    }
+    .bgCrewMobile {
+        @apply bg-[url('/assets/crew/background-crew-mobile.jpg')];
+    }
+    .bgTechnologyDesktop {
+        @apply bg-[url('/assets/technology/background-technology-desktop.jpg')];
+    }
+    .bgTechnologyTablet {
+        @apply bg-[url('/assets/technology/background-technology-tablet.jpg')];
+    }
+    .bgTechnologyMobile {
+        @apply bg-[url('/assets/technology/background-technology-mobile.jpg')];
+    }
 }
